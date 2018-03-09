@@ -21,6 +21,7 @@ then
    echo "PASS"
 else
    echo "FAIL"
+   diff -C 100 r1 myr1 > failure_test1
 fi
 
 
@@ -41,6 +42,8 @@ then
    echo "PASS"
 else
    echo "FAIL"
+   #put the differences in a file
+   diff -C 100 r2 myr2 > failure_test2
 fi
 
 
@@ -61,4 +64,7 @@ then
    echo "PASS"
 else
    echo "FAIL"
+   #put the differences in a file
+   diff -C 100 r3 myr3 > failure_test3
+
 fi
