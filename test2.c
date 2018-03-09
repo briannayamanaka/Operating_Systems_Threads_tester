@@ -16,11 +16,11 @@ void Main ()
   me = GetThread (); 
   t = CreateThread (printSquares, me);
   t = CreateThread (printCubes, t); 
-  t = MyCreateThread (printSquares, t); 
-  t = MyCreateThread (printSquares, t); 
-  t = MyCreateThread (printSquares, t); 
-  t = MyCreateThread (printSquares, t); 
-  t = MyCreateThread (printSquares, t); 
+  t = CreateThread (printSquares, t); 
+  t = CreateThread (printSquares, t); 
+  t = CreateThread (printSquares, t); 
+  t = CreateThread (printSquares, t); 
+  t = CreateThread (printSquares, t); 
 
   for (i = 0; i < NUMYIELDS; i++) {
     YieldThread (t);
