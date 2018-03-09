@@ -13,9 +13,9 @@ void Main ()
 
   MyInitThreads (); 
 
-  me = GetThread (); 
-  t = CreateThread (printSquares, me);
-  t = CreateThread (printCubes, t); 
+  me = MyGetThread (); 
+  t = MyCreateThread (printSquares, me);
+  t = MyCreateThread (printCubes, t); 
   t = MyCreateThread (printSquares, t); 
   t = MyCreateThread (printSquares, t); 
   t = MyCreateThread (printSquares, t); 

@@ -6,7 +6,7 @@ LIBDIR = $(UMIXPUBDIR)/lib
 CC 	= cc 
 FLAGS 	= -g -L$(LIBDIR) -lumix4
 
-PA4 =	pa4a pa4b pa4c mytest1 test1 mytest2 test2
+PA4 =	pa4a pa4b pa4c mytest1 test1 mytest2 test2 mytest3 test3
 #TESTS = mytest reftest
 
 pa4:	$(PA4)
@@ -32,20 +32,29 @@ mykernel4.o:	mykernel4.c aux.h umix.h mykernel4.h
 #reftest: tests.c aux.h umix.h mykernel4.h mykernel4.o
 #	$(CC) $(FLAGS) -DUSE_REFERENCE_KERNEL -o $@ tests.c mykernel4.o
 
-### test1 ###
+
+########## test1 ##########
 test1: test1.c aux.h umix.h mykernel4.h mykernel4.o
 	$(CC) $(FLAGS) -o test1 test1.c mykernel4.o
 
 mytest1: mytest1.c aux.h umix.h mykernel4.h mykernel4.o
 	$(CC) $(FLAGS) -o mytest1 mytest1.c mykernel4.o
 
-### test2 ###
 
+########## test2 ##########
 test2: test2.c aux.h umix.h mykernel4.h mykernel4.o
 	$(CC) $(FLAGS) -o test2 test2.c mykernel4.o
 
-mytest2: mytest1.c aux.h umix.h mykernel4.h mykernel4.o
+mytest2: mytest2.c aux.h umix.h mykernel4.h mykernel4.o
 	$(CC) $(FLAGS) -o mytest2 mytest2.c mykernel4.o
+
+
+########## test3 ##########
+test3: test3.c aux.h umix.h mykernel4.h mykernel4.o
+	$(CC) $(FLAGS) -o test3 test3.c mykernel4.o
+
+mytest3: mytest3.c aux.h umix.h mykernel4.h mykernel4.o
+	$(CC) $(FLAGS) -o mytest3 mytest3.c mykernel4.o
 
 clean:
 	rm -f *.o $(PA4) 
