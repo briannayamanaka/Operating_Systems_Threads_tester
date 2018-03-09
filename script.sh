@@ -30,6 +30,10 @@ fi
 #put actual results in myr1
 ./mytest2 > myr2
 
+#remove first line from files
+echo "$(tail +2 r2)" > r2
+echo "$(tail +2 myr2)" > myr2
+
 #compare the expected with actual
 echo "***** Test2 *****"
 if cmp -s r2 myr2
