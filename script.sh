@@ -32,7 +32,7 @@ fi
 
 #compare the expected with actual
 echo "***** Test2 *****"
-if cmp -s r1 myr1
+if cmp -s r2 myr2
 then
    echo "PASS"
 else
