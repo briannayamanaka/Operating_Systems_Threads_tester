@@ -10,6 +10,10 @@ test cases
 - if you fail a test the failure gets put in a file called failure_test# so you can see what the differences between your functions and the given functions are
 
 
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
 1. add all files to pa4 directory
 2. might have to add permissions to run script:
    %chmod 777 script.sh
