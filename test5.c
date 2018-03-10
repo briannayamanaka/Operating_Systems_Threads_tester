@@ -39,9 +39,6 @@ void Main ()
   t = CreateThread (doNothing,8); 
   t = CreateThread (doNothing,9); 
   YieldThread(1);
-  YieldThread(3);
-  YieldThread(5);
-  YieldThread(7);
 
   ExitThread (); 
 }
