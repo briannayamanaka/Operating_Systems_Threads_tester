@@ -15,7 +15,9 @@ echo "$(tail +2 r1)" > r1
 echo "$(tail +2 myr1)" > myr1
 
 #compare the expected with actual
+echo
 echo "***** Test1 *****"
+echo
 if cmp -s r1 myr1
 then
    echo "PASS"
@@ -66,5 +68,28 @@ else
    echo "FAIL"
    #put the differences in a file
    diff -C 100 r3 myr3 > failure_test3
+
+fi
+
+
+################# test4 ######################
+#put expected results in a file
+./test4 > r4
+#put actual results in a file
+./mytest4 > myr4
+
+#remove first line from files
+echo "$(tail +2 r4)" > r4
+echo "$(tail +2 myr4)" > myr4
+
+#compare the expected with actual
+echo "***** Test4 *****"
+if cmp -s r4 myr4
+then
+   echo "PASS"
+else
+   echo "FAIL"
+   #put the differences in a file
+   diff -C 100 r4 myr4 > failure_test4
 
 fi
