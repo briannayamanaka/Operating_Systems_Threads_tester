@@ -149,9 +149,9 @@ fi
 
 ################# test7 ######################
 #put expected results in a file
-./test1b > r7
+./test7 > r7
 #put actual results in a file
-./mytest1b > myr7
+./mytest7 > myr7
 
 #remove first line from files
 echo "$(tail +2 r7)" > r7
