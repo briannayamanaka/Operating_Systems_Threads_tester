@@ -4,6 +4,7 @@ test cases
 - files with names that start with "mytest" are tests that call YOUR implemented functions (actual results)
 - files with names that start with "test" are tests that call GIVEN implemented functions (expected results)
 - script.sh runs both and compares the two
+- script.sh also cleans existing executables, recompiles everything, runs tests with your implementations, runs the same tests with the given implementations and compares the two
 - PASS = no differences between the output of given functions and your implemented functions
 - FAIL = differences between the output of given functions and your implemented functions
 - every test additionally produces two files, expected output and actual output. for example, test1 produces r1 (expected output) and myr1 (actual output) these outputs are compared to check for correctness
