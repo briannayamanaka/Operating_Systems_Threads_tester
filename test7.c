@@ -1,0 +1,115 @@
+#include "aux.h"
+#include "umix.h"
+#include "mykernel4.h"
+
+#define NUMYIELDS 5
+
+static int square, cube;  // global variables, shared by threads
+
+void Main ()
+{
+  int i, t, me; 
+  void printSquares (), printCubes (), doNothing();
+
+  InitThreads (); 
+
+  me = GetThread (); 
+  t = CreateThread (doNothing, 1);
+  t = CreateThread (doNothing, 2); 
+  t = CreateThread (doNothing, 3); 
+
+
+  //main is running in zero, yield to 1 (naturally from one we yield to everyone else in fifo order)
+  YieldThread(3);
+  
+  t = CreateThread (doNothing, 1); // 4
+  t = CreateThread (doNothing, 2); // 5
+  t = CreateThread (doNothing, 3); // 6
+  SchedThread();
+  t = CreateThread (doNothing, 4); // 7
+  
+  YieldThread(7);
+
+  t = CreateThread (doNothing, 5); // 8
+  t = CreateThread (doNothing, 6); // 9
+  SchedThread();
+  t = CreateThread (doNothing, 7); // 1
+  t = CreateThread (doNothing, 8); // 2
+  
+  YieldThread(2);
+
+  t = CreateThread (doNothing, 6); // 3 
+  t = CreateThread (doNothing, 7); // 4
+
+  SchedThread();
+
+  t = CreateThread (doNothing, 8); // 5
+  t = CreateThread (doNothing, 9); // 6
+  
+  YieldThread(5);
+  /*t = CreateThread (doNothing, 1);
+  t = CreateThread (doNothing, 2); 
+  t = CreateThread (doNothing,3); 
+  t = CreateThread (doNothing,4); 
+  t = CreateThread (doNothing,5); 
+  t = CreateThread (doNothing,6); 
+  t = CreateThread (doNothing,7); 
+  t = CreateThread (doNothing,8); 
+  t = CreateThread (doNothing,9); 
+  YieldThread(1);
+
+  t = CreateThread (doNothing, 1);
+  t = CreateThread (doNothing, 2); 
+  t = CreateThread (doNothing,3); 
+  t = CreateThread (doNothing,4); 
+  t = CreateThread (doNothing,5); 
+  t = CreateThread (doNothing,6); 
+  t = CreateThread (doNothing,7); 
+  t = CreateThread (doNothing,8); 
+  t = CreateThread (doNothing,9); 
+  YieldThread(1);
+
+  t = CreateThread (doNothing, 1);
+  t = CreateThread (doNothing, 2); 
+  t = CreateThread (doNothing,3); 
+  t = CreateThread (doNothing,4); 
+  t = CreateThread (doNothing,5); 
+  t = CreateThread (doNothing,6); 
+  t = CreateThread (doNothing,7); 
+  t = CreateThread (doNothing,8); 
+  t = CreateThread (doNothing,9); 
+  YieldThread(1);*/
+
+  ExitThread (); 
+}
+
+void printSquares (t) 
+  int t;        // thread to yield to
+{
+  int i;
+
+  for (i = 0; i < NUMYIELDS; i++) {
+    square = i * i;
+    Printf ("T%d: %d squared = %d\n", GetThread (), i, square);
+    YieldThread (t);
+  }
+}
+
+void doNothing(x)
+  int x;
+{
+  Printf("\n%d\n",x);
+}
+
+void printCubes (t) 
+  int t;        // thread to yield to
+{
+  int i;
+
+  for (i = 0; i < NUMYIELDS; i++) {
+    cube = i * i * i;
+    Printf ("T%d: %d cubed = %d\n", GetThread (), i, cube);
+    YieldThread (t);
+  }
+}
+
