@@ -2,17 +2,17 @@
 #echo "hey"
 
 make -f Makefile
-echo
-echo
-echo
+echo "."
+echo "."
+echo "."
 echo "compiled all files"
-echo
-echo
-echo
+echo "."
+echo "."
+echo "."
 echo "running tests"
-echo
-echo
-echo
+echo "."
+echo "."
+echo "."
 
 ################# test1 ######################
 #put expected results in a file
@@ -104,7 +104,7 @@ fi
 
 
 
-################# test4 ######################
+################# test5 ######################
 #put expected results in a file
 ./test5 > r5
 #put actual results in a file
@@ -123,4 +123,26 @@ else
    echo "FAIL"
    #put the differences in a file
    diff -C 100 r5 myr5 > failure_test5
+fi
+
+
+################# test6 ######################
+#put expected results in a file
+./test6 > r6
+#put actual results in a file
+./mytest6 > myr6
+
+#remove first line from files
+echo "$(tail +2 r6)" > r6
+echo "$(tail +2 myr6)" > myr6
+
+#compare the expected with actual
+echo "***** Test6 *****"
+if cmp -s r6 myr6
+then
+   echo "PASS"
+else
+   echo "FAIL"
+   #put the differences in a file
+   diff -C 100 r6 myr6 > failure_test6
 fi

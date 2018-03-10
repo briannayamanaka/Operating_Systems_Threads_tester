@@ -6,7 +6,7 @@ LIBDIR = $(UMIXPUBDIR)/lib
 CC 	= cc 
 FLAGS 	= -g -L$(LIBDIR) -lumix4
 
-PA4 =	pa4a pa4b pa4c mytest1 test1 mytest2 test2 mytest3 test3 mytest4 test4 mytest5 test5
+PA4 =	pa4a pa4b pa4c mytest1 test1 mytest2 test2 mytest3 test3 mytest4 test4 mytest5 test5 mytest6 test6
 #TESTS = mytest reftest
 
 pa4:	$(PA4)
@@ -69,6 +69,13 @@ test5: test5.c aux.h umix.h mykernel4.h mykernel4.o
 
 mytest5: mytest5.c aux.h umix.h mykernel4.h mykernel4.o
 	$(CC) $(FLAGS) -o mytest5 mytest5.c mykernel4.o
+
+########## test6 ##########
+test6: test6.c aux.h umix.h mykernel4.h mykernel4.o
+	$(CC) $(FLAGS) -o test6 test6.c mykernel4.o
+
+mytest6: mytest6.c aux.h umix.h mykernel4.h mykernel4.o
+	$(CC) $(FLAGS) -o mytest6 mytest6.c mykernel4.o
 
 clean:
 	rm -f *.o $(PA4) 
