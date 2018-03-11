@@ -1,18 +1,34 @@
 #!/bin/bash
 #echo "hey"
 
+echo 
+echo 
+echo 
+echo "-----------------"
+echo 
+echo "RUNNING SCRIPT.SH"
+echo 
+echo "-----------------"
+echo "."
+echo "."
+echo "."
+make clean
+echo "."
+echo "."
+echo "."
+echo "CLEANED UP EXECUTABLES"
+echo "."
+echo "."
+echo "."
 make -f Makefile
 echo "."
 echo "."
 echo "."
-echo "compiled all files"
+echo "COMPILED ALL FILES"
 echo "."
 echo "."
 echo "."
-echo "running tests"
-echo "."
-echo "."
-echo "."
+echo "RUNNING TESTS:"
 
 ################# test1 ######################
 #put expected results in a file
