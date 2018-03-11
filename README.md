@@ -9,7 +9,7 @@ test cases
 - FAIL = differences between the output of given functions and your implemented functions
 - every test additionally produces two files, expected output and actual output. for example, test1 produces r1 (expected output) and myr1 (actual output) these outputs are compared to check for correctness
 - if you fail a test the failure gets put in a file called failure_test# so you can see what the differences between your functions and the given functions are
-- the test scipt results will be a lot clearer if you comment out all your DPrint'f's
+- the test script results will be a lot clearer if you comment out all your DPrint'f's
 - the test script won't work if you have any additional Printf's apart from the ones that were given in the original code
 
 
