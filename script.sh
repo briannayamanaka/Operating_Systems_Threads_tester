@@ -206,3 +206,26 @@ else
    #put the differences in a file
    diff -C 100 r8 myr8 > failure_test8
 fi
+
+
+
+################# test9 ######################
+#put expected results in a file
+./test9 > r9
+#put actual results in a file
+./mytest9 > myr9
+
+#remove first line from files
+echo "$(tail +2 r9)" > r9
+echo "$(tail +2 myr9)" > myr9
+
+#compare the expected with actual
+echo "***** Test9 *****"
+if cmp -s r9 myr9
+then
+   echo "PASS"
+else
+   echo "FAIL"
+   #put the differences in a file
+   diff -C 100 r9 myr9 > failure_test9
+fi
