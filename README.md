@@ -17,8 +17,9 @@ test cases
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 
-1. add all files to pa4 directory
+1. cp all files to pa4 directory
 2. might have to add permissions to run script:
    %chmod 777 script.sh
-3. run script:
+3. make sure you don't have any Printf()'s aside from the ones given in the original code
+4. run script:
    %./script.sh
