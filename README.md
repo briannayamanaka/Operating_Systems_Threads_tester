@@ -19,7 +19,13 @@ test cases
 
 1. cp all files to pa4 directory
 2. might have to add permissions to run script:
-   %chmod 777 script.sh
+   - %chmod 777 script.sh
 3. make sure you don't have any Printf()'s aside from the ones given in the original code
 4. run script:
-   %./script.sh
+   - %./script.sh
+5. to view failures: %vim failure_test#
+   - e.g. if you failed test7:
+   - %vim failure_test7   
+6. to debug failures: %vimdiff r# myr#
+   - e.g. if you failed test7:
+   - %vim r7 myr7
